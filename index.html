@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Account Calculator</title>
+    <title>Subtraction App</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -16,56 +16,59 @@
             height: 100vh;
             margin: 0;
         }
-        .calculator {
-            background: white;
+        .container {
+            background-color: white;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
             width: 300px;
-            box-sizing: border-box;
         }
-        .calculator input {
+        input[type="number"] {
             width: 100%;
-            padding: 10px;
+            padding: 8px;
             margin: 10px 0;
-            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
-        .calculator button {
-            padding: 10px;
+        button {
             width: 100%;
-            font-size: 16px;
-            background-color: #5CB85C;
+            padding: 10px;
+            background-color: #007BFF;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 4px;
             cursor: pointer;
+            font-size: 16px;
         }
-        .calculator button:hover {
-            background-color: #4cae4c;
+        button:hover {
+            background-color: #0056b3;
         }
-        .calculator .result {
-            margin-top: 15px;
+        .result {
+            margin-top: 20px;
             font-size: 18px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <div class="calculator">
-        <h2>Account Calculator</h2>
-        <input type="number" id="input1" placeholder="Enter first number">
-        <input type="number" id="input2" placeholder="Enter second number">
-        <button onclick="performCalculation()">Calculate Sum</button>
-        <div id="result" class="result"></div>
+    <div class="container">
+        <h1>Subtraction App</h1>
+        <input type="number" id="number1" placeholder="Enter first number">
+        <input type="number" id="number2" placeholder="Enter second number">
+        <button onclick="performSubtraction()">Subtract</button>
+        <div class="result" id="result"></div>
     </div>
     <script>
-        function performCalculation() {
-            const input1 = parseFloat(document.getElementById('input1').value);
-            const input2 = parseFloat(document.getElementById('input2').value);
-            if (!isNaN(input1) && !isNaN(input2)) {
-                const sum = input1 + input2;
-                document.getElementById('result').innerText = `Result: ${sum}`;
+        function performSubtraction() {
+            const num1 = parseFloat(document.getElementById('number1').value);
+            const num2 = parseFloat(document.getElementById('number2').value);
+            const result = num1 - num2;
+
+            if (!isNaN(result)) {
+                document.getElementById('result').innerText = `Result: ${result}`;
             } else {
-                document.getElementById('result').innerText = 'Please enter valid numbers!';
+                document.getElementById('result').innerText = 'Please enter valid numbers.';
             }
         }
     </script>
