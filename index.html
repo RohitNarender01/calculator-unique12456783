@@ -1,0 +1,73 @@
+==
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Account Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .calculator {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            box-sizing: border-box;
+        }
+        .calculator input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        .calculator button {
+            padding: 10px;
+            width: 100%;
+            font-size: 16px;
+            background-color: #5CB85C;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .calculator button:hover {
+            background-color: #4cae4c;
+        }
+        .calculator .result {
+            margin-top: 15px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h2>Account Calculator</h2>
+        <input type="number" id="input1" placeholder="Enter first number">
+        <input type="number" id="input2" placeholder="Enter second number">
+        <button onclick="performCalculation()">Calculate Sum</button>
+        <div id="result" class="result"></div>
+    </div>
+    <script>
+        function performCalculation() {
+            const input1 = parseFloat(document.getElementById('input1').value);
+            const input2 = parseFloat(document.getElementById('input2').value);
+            if (!isNaN(input1) && !isNaN(input2)) {
+                const sum = input1 + input2;
+                document.getElementById('result').innerText = `Result: ${sum}`;
+            } else {
+                document.getElementById('result').innerText = 'Please enter valid numbers!';
+            }
+        }
+    </script>
+</body>
+</html>
