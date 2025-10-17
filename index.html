@@ -1,73 +1,76 @@
-==
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Account Calculator</title>
-    <style>
+<html><body><pre>index.html
+```html
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Simple Subtracting Calculator&lt;/title&gt;
+    &lt;style&gt;
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            background-color: #f4f4f9;
         }
         .calculator {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 300px;
-            box-sizing: border-box;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        .calculator input {
+        input[type="number"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
             width: 100%;
             padding: 10px;
-            margin: 10px 0;
             font-size: 16px;
-        }
-        .calculator button {
-            padding: 10px;
-            width: 100%;
-            font-size: 16px;
-            background-color: #5CB85C;
-            color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 4px;
+            color: white;
+            background-color: #007BFF;
             cursor: pointer;
         }
-        .calculator button:hover {
-            background-color: #4cae4c;
+        button:hover {
+            background-color: #0056b3;
         }
-        .calculator .result {
-            margin-top: 15px;
+        .result {
+            margin-top: 20px;
             font-size: 18px;
+            text-align: center;
         }
-    </style>
-</head>
-<body>
-    <div class="calculator">
-        <h2>Account Calculator</h2>
-        <input type="number" id="input1" placeholder="Enter first number">
-        <input type="number" id="input2" placeholder="Enter second number">
-        <button onclick="performCalculation()">Calculate Sum</button>
-        <div id="result" class="result"></div>
-    </div>
-    <script>
-        function performCalculation() {
-            const input1 = parseFloat(document.getElementById('input1').value);
-            const input2 = parseFloat(document.getElementById('input2').value);
-            if (!isNaN(input1) && !isNaN(input2)) {
-                const sum = input1 + input2;
-                document.getElementById('result').innerText = `Result: ${sum}`;
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="calculator"&gt;
+        &lt;input type="number" id="num1" placeholder="Enter first number"&gt;
+        &lt;input type="number" id="num2" placeholder="Enter second number"&gt;
+        &lt;button onclick="subtractNumbers()"&gt;Subtract&lt;/button&gt;
+        &lt;div class="result" id="result"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        function subtractNumbers() {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            if (isNaN(num1) || isNaN(num2)) {
+                document.getElementById('result').textContent = 'Please enter valid numbers.';
             } else {
-                document.getElementById('result').innerText = 'Please enter valid numbers!';
+                const result = num1 - num2;
+                document.getElementById('result').textContent = 'Result: ' + result;
             }
         }
-    </script>
-</body>
-</html>
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+```</pre></body></html>
